@@ -1,0 +1,452 @@
+/* Define color variables */
+:root {
+    --primary-color: #150734; /* Dark purple */
+    --accent-color: orange; /* Orange */
+    --background-light: #f8f9fa; /* Light background */
+    --text-light: #fff; /* Light text */
+    --text-dark: #150734; /* Dark text */
+}
+
+/* Import Google Sans font */
+@import url('https://fonts.cdnfonts.com/css/google-sans');
+
+/* Reset default styles and set font-family */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Google Sans', sans-serif; /* Change to the imported font name */
+}
+
+/* Styling for the welcome section */
+#welcome {
+    background-color: var(--primary-color); /* Use color variable */
+    padding: 4em ;
+    text-align: center;
+    color: var(--text-light); 
+    height: 400px;
+}
+#welcome .row{
+    margin: 0%;
+    display: flex;
+    justify-content: center;
+}
+#welcome span {
+    color: var(--accent-color); /* Use color variable */
+}
+.level-up-notification {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FDD835;
+    border-radius: 10px;
+    font-weight: bold;
+    font-family: "Courier New", monospace;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    animation: scale-up 1.5s ease-in-out forwards, fade-out 0.5s ease-in-out forwards 21.5s;
+  }
+  
+  .level-up-text {
+    text-align: center;
+    color: #fff;
+    font-size: 30px;
+    padding: 12px 20px;
+    font-weight: bold;
+    text-shadow: 2px 2px #000;
+  }
+  
+  @keyframes confetti {
+    0% {
+      transform: translateY(-50%);
+    }
+  
+    100% {
+      transform: translateY(100%);
+    }
+  }
+  
+  @keyframes scale-up {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+  
+  .level-up-notification:hover {
+    animation: none;
+  }
+  
+  .level-up-notification:hover .confetti {
+    animation: confetti 0.5s ease-in-out forwards;
+  }
+  
+  /* asd */
+  
+  .confetti-container {
+    user-select: none;
+    z-index: 10;
+  }
+  
+  .confetti {
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: flex;
+    width: 100%; 
+     height: 400px; 
+     overflow: hidden; 
+  }
+  
+  .confetti .square {
+    width: 1rem;
+    height: 1rem;
+    background-color: var(--bg);
+    transform: rotate(-140deg);
+  }
+  
+  .confetti .rectangle {
+    width: 1rem;
+    height: 0.5rem;
+    background-color: var(--bg);
+  }
+  
+  .confetti .hexagram {
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-bottom: 1rem solid var(--bg);
+    position: relative;
+  }
+  
+  .confetti .hexagram:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-left: 0.5rem solid transparent;
+    border-right: 0.5rem solid transparent;
+    border-top: 1rem solid var(--bg);
+    position: absolute;
+    top: 0.33rem;
+    left: -0.5rem;
+  }
+  
+  .confetti .pentagram {
+    width: 0rem;
+    height: 0rem;
+    display: block;
+    margin: 0.5rem 0;
+    border-right: 1rem solid transparent;
+    border-bottom: 0.7rem solid var(--bg);
+    border-left: 1rem solid transparent;
+    transform: rotate(35deg);
+    position: relative;
+  }
+  
+  .confetti .pentagram:before {
+    content: "";
+    width: 0;
+    height: 0;
+    display: block;
+    border-bottom: 0.8rem solid var(--bg);
+    border-left: 0.3rem solid transparent;
+    border-right: 0.3rem solid transparent;
+    transform: rotate(-35deg);
+    position: absolute;
+    top: -0.45rem;
+    left: -0.65rem;
+  }
+  
+  .confetti .pentagram:after {
+    content: "";
+    width: 0rem;
+    height: 0rem;
+    display: block;
+    border-right: 1rem solid transparent;
+    border-bottom: 0.7rem solid var(--bg);
+    border-left: 1rem solid transparent;
+    transform: rotate(-70deg);
+    position: absolute;
+    top: 0.03rem;
+    left: -1.05rem;
+  }
+  
+  .confetti .dodecagram {
+    background: var(--bg);
+    width: 0.8rem;
+    height: 0.8rem;
+    position: relative;
+  }
+  
+  .confetti .dodecagram:before {
+    content: "";
+    height: 0.8rem;
+    width: 0.8rem;
+    background: var(--bg);
+    transform: rotate(30deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .confetti .dodecagram:after {
+    content: "";
+    height: 0.8rem;
+    width: 0.8rem;
+    background: var(--bg);
+    transform: rotate(60deg);
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .confetti .wavy-line {
+    position: relative;
+  }
+  
+  .confetti .wavy-line::after,
+  .confetti .wavy-line::before {
+    content: "";
+    height: 1rem;
+    width: 8rem;
+    background-size: 2rem 1rem;
+    position: absolute;
+    left: -9rem;
+    transform: rotate(90deg);
+  }
+  
+  .confetti .wavy-line::before {
+    background-image: linear-gradient(
+      45deg,
+      transparent,
+      transparent 50%,
+      var(--bg) 50%,
+      transparent 60%
+    );
+    top: 1rem;
+  }
+  
+  .confetti .wavy-line::after {
+    background-image: linear-gradient(
+      -45deg,
+      transparent,
+      transparent 50%,
+      var(--bg) 50%,
+      transparent 60%
+    );
+  }
+  
+  .confetti i {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 0.2rem;
+    animation-name: confetti;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-duration: calc(70s / var(--speed));
+  }
+  
+  .confetti i:nth-child(even) {
+    transform: rotate(90deg);
+  }
+  
+  @keyframes confetti {
+    0% {
+      transform: translateY(-500px);
+    }
+  
+    100% {
+      transform: translateY(500px);
+    }
+  }
+  
+#welcome button {
+    padding: 15px;
+    width: 150px;
+    margin-top: 30px;
+    background-color: rgb(233, 135, 7); 
+    box-shadow: rgb(121, 76, 18) 0px 4px 0px 0px;/* Use color variable */
+    border: none;
+    border-radius: 0;
+    transition: all 0.8s ease-in-out;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 8PX;
+}  
+ #welcome button:hover{
+    background-color: rgb(248, 176, 67);
+    color: white;
+    font-size: 1.2em;
+  }
+  
+
+/* Styling for the projects section */
+#project {
+    padding-top: 40px;
+    padding-bottom: 70px;
+    background-color: var(--background-light); /* Use color variable */
+}
+
+#project h2 {
+    text-align: center;
+    color: var(--text-dark); /* Use color variable */
+    text-transform: uppercase;
+    margin-bottom: 40px; /* Increase spacing below heading */
+}
+
+.card {
+    border: none;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1); 
+    transition: 0.3s;
+    margin: 1em;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+#about {
+  background-color: #f5f5f5; /* Light gray background color */
+  padding: 4em; /* Padding around content */
+  text-align: center; /* Center-align text */
+}
+
+#about h2 {
+  color: #333; /* Dark text color */
+  margin-bottom: 20px; /* Bottom margin for heading */
+}
+
+#about p {
+  color: #666; /* Medium gray text color */
+  font-size: 1.1em; /* Font size for paragraph */
+  line-height: 1.6; /* Line height for readability */
+}
+#skills {
+  background-color: #fff; /* White background color */
+  padding: 4em; /* Padding around content */
+  text-align: center; /* Center-align text */
+}
+
+#skills h2 {
+  color: #333; /* Dark text color */
+  margin-bottom: 20px; /* Bottom margin for heading */
+}
+
+.skill-list {
+  list-style: none; /* Remove default list style */
+  padding: 0; /* Remove padding */
+}
+
+.skill-list li {
+  display: inline-block; /* Display items in a row */
+  margin: 0 10px; /* Margin between items */
+}
+
+.skill-list li span {
+  display: block; /* Display as block element */
+  background-color: #f0f0f0; /* Light gray background color */
+  padding: 8px 15px; /* Padding inside item */
+  border-radius: 20px; /* Rounded corners */
+  font-size: 0.9em; /* Font size */
+  color: #666; /* Medium gray text color */
+}
+
+
+/* Styling for the contact section */
+#contact {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    background-color: var(--primary-color); /* Use color variable */
+  
+    color: var(--text-light); /* Use color variable */
+}
+
+#contact h1 {
+    color: var(--accent-color); /* Use color variable */
+    margin-bottom: 20px; /* Increase spacing below heading */
+}
+
+#contact a {
+    color: var(--text-light); /* Use color variable */
+    text-decoration: none;
+}
+iframe {
+  width: 100%;
+  height: 300px;
+  margin-bottom: 1em;
+}
+/* Form styles */
+form {
+    background-color: #fff; /* White background color */
+    padding: 30px; /* Padding around the form */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle lift */
+}
+
+form label {
+    display: block; /* Display labels as block elements */
+    color: #333; /* Dark text color */
+    margin-bottom: 8px; /* Bottom margin for spacing */
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%; /* Full width for text inputs and textarea */
+    padding: 12px; /* Padding inside inputs */
+    margin-bottom: 20px; /* Bottom margin for spacing */
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+form textarea {
+    resize: vertical; /* Allow vertical resizing for textarea */
+}
+
+form button[type="submit"] {
+    background-color: #007bff; /* Blue button color */
+    color: #fff; /* White text color */
+    padding: 12px 20px; /* Padding inside button */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Rounded corners */
+    font-size: 1em; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+form button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Result message styles */
+#result {
+    margin-top: 20px; /* Top margin for spacing */
+    color: #007bff; /* Blue text color */
+}
+
+
+@media only screen and (max-width: 768px) {
+    .confetti-container{
+        display: none;
+    }
+    #welcome button{
+
+width:100px;
+justify-content: center; 
+margin-top: 10px;
+    }
+    #welcome{
+        padding: 1em;
+    }
+}
